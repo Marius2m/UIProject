@@ -7,7 +7,9 @@ package javaapplication1.newpackage;
 
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,10 +17,11 @@ import javax.swing.JLabel;
  */
 public class Home extends javax.swing.JFrame {
     
-    private boolean isRunTestClicked = false;
+    private boolean isRunTestClicked       = false;
     private boolean isConfigureTestClicked = false;
-    private boolean isUploadScoreClicked = false;
-    private boolean isHelpClicked = false;
+    private boolean isUploadScoreClicked   = false;
+    private boolean isHelpClicked          = false;
+    public  boolean results                = false;
     
     int xx;
     int xy;
@@ -29,6 +32,10 @@ public class Home extends javax.swing.JFrame {
     public Home() {
         initComponents();
         rb_Sequential.setSelected(true);
+       // this.setExtendedState(ICONIFIED);
+        //this.setExtendedState(JFrame.ICONIFIED);﻿
+      //  jButton1.addActionListener(this.);
+      
     }
 
     /**
@@ -65,6 +72,9 @@ public class Home extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jt_nr = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         UploadScore = new javax.swing.JPanel();
         lbl_information = new javax.swing.JLabel();
         lbl_name = new javax.swing.JLabel();
@@ -81,7 +91,11 @@ public class Home extends javax.swing.JFrame {
         lbl_selectDrive1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         lbl_BUpload = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         Help = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -253,7 +267,7 @@ public class Home extends javax.swing.JFrame {
 
         lbl_RandomAccess.setText("Random Access");
 
-        lbl_Sequential.setText("Sequential");
+        lbl_Sequential.setText("Sequential Access");
 
         lbl_NumberOfTests.setText("Number of Tests");
 
@@ -395,6 +409,42 @@ public class Home extends javax.swing.JFrame {
 
         jt_nr.setText("jTextField4");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/normal.png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel5MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel5MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel5MouseReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jButton1.setText("jButton1");
+
         javax.swing.GroupLayout RunConfigurationLayout = new javax.swing.GroupLayout(RunConfiguration);
         RunConfiguration.setLayout(RunConfigurationLayout);
         RunConfigurationLayout.setHorizontalGroup(
@@ -408,11 +458,17 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(146, 146, 146))
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(RunConfigurationLayout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         RunConfigurationLayout.setVerticalGroup(
             RunConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RunConfigurationLayout.createSequentialGroup()
-                .addContainerGap(157, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jt_random, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -420,7 +476,9 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jt_nr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(43, 43, 43))
         );
 
         jPanel2.add(RunConfiguration, "card2");
@@ -525,6 +583,40 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/normal.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel7MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel7MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel7MouseReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout UploadScoreLayout = new javax.swing.GroupLayout(UploadScore);
         UploadScore.setLayout(UploadScoreLayout);
         UploadScoreLayout.setHorizontalGroup(
@@ -551,19 +643,22 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(rd_hdd)
                             .addComponent(rb_ssd))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(lbl_selectDrive, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
+                    .addComponent(lbl_selectDrive, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(36, 36, 36)
                 .addGroup(UploadScoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lbl_selectDrive1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField1))
                 .addGap(54, 54, 54))
+            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         UploadScoreLayout.setVerticalGroup(
             UploadScoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UploadScoreLayout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addGroup(UploadScoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(UploadScoreLayout.createSequentialGroup()
-                        .addGap(131, 131, 131)
+                        .addGap(56, 56, 56)
                         .addGroup(UploadScoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lbl_ssd)
                             .addComponent(rb_ssd))
@@ -572,7 +667,6 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(rd_hdd)
                             .addComponent(lbl_hdd)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UploadScoreLayout.createSequentialGroup()
-                        .addGap(75, 75, 75)
                         .addGroup(UploadScoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(UploadScoreLayout.createSequentialGroup()
                                 .addGroup(UploadScoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -594,22 +688,58 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(tf_laptopmodel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(s_laptopmodel, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(41, 41, 41)
                 .addComponent(lbl_BUpload, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jPanel2.add(UploadScore, "card2");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/normal.png"))); // NOI18N
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel6MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel6MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel6MouseReleased(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout HelpLayout = new javax.swing.GroupLayout(Help);
         Help.setLayout(HelpLayout);
         HelpLayout.setHorizontalGroup(
             HelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 644, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         HelpLayout.setVerticalGroup(
             HelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(HelpLayout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 349, Short.MAX_VALUE))
         );
 
         jPanel2.add(Help, "card2");
@@ -652,6 +782,7 @@ public class Home extends javax.swing.JFrame {
         if(rb_RandomAccess.isEnabled())
              jt_random.setText("Random");
         jt_nr.setText((String) cb_NumberOfTests.getSelectedItem());
+
     }//GEN-LAST:event_lbl_RunTestMouseClicked
 
     private void lbl_ConfigureTestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_ConfigureTestMouseClicked
@@ -977,19 +1108,13 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rb_SequentialActionPerformed
 
-    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+    private void jLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseReleased
         ImageIcon IB;
         IB = new ImageIcon(getClass().getResource("/images/hover.png"));
         jLabel4.setIcon(IB);
+        System.exit(0);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel4MouseEntered
-
-    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        ImageIcon IB;
-        IB = new ImageIcon(getClass().getResource("/images/normal.png"));
-        jLabel4.setIcon(IB);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel4MouseExited
+    }//GEN-LAST:event_jLabel4MouseReleased
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
         ImageIcon IB;
@@ -998,14 +1123,108 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4MousePressed
 
-    private void jLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseReleased
+    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/normal.png"));
+        jLabel4.setIcon(IB);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseExited
+
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
         ImageIcon IB;
         IB = new ImageIcon(getClass().getResource("/images/hover.png"));
         jLabel4.setIcon(IB);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseEntered
+                                      
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/hover.png"));
+        jLabel5.setIcon(IB);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/normal.png"));
+        jLabel5.setIcon(IB);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MouseExited
+
+    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/hovered.png"));
+        jLabel5.setIcon(IB);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MousePressed
+
+    private void jLabel5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseReleased
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/hover.png"));
+        jLabel5.setIcon(IB);
+        System.exit(0);
+    }//GEN-LAST:event_jLabel5MouseReleased
+
+    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/hover.png"));
+        jLabel6.setIcon(IB);
+        // TODO add your handling code here:// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseEntered
+
+    private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/normal.png"));
+        jLabel6.setIcon(IB);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseExited
+
+    private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/hovered.png"));
+        jLabel6.setIcon(IB);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MousePressed
+
+    private void jLabel6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseReleased
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/hover.png"));
+        jLabel6.setIcon(IB);
         System.exit(0);
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel4MouseReleased
+    }//GEN-LAST:event_jLabel6MouseReleased
+
+    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/hover.png"));
+        jLabel7.setIcon(IB);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseEntered
+
+    private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/normal.png"));
+        jLabel7.setIcon(IB);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseExited
+
+    private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/hovered.png"));
+        jLabel7.setIcon(IB);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MousePressed
+
+    private void jLabel7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseReleased
+        ImageIcon IB;
+        IB = new ImageIcon(getClass().getResource("/images/hover.png"));
+        jLabel7.setIcon(IB);
+        System.exit(0);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseReleased
+
     
+        
     public void setLblColor(JLabel lbl){
         lbl.setBackground(new Color(24, 186, 129));
         
@@ -1017,6 +1236,53 @@ public class Home extends javax.swing.JFrame {
     
     private void setLblHoverColor(JLabel lbl) {
         lbl.setBackground(new Color(6,56,94));
+    }
+    
+    /**
+     *
+     * @param evt
+     */
+    public int testMethod(java.awt.event.MouseEvent evt) {
+        isRunTestClicked = true;
+        isConfigureTestClicked = false;
+        isUploadScoreClicked = false;
+        isHelpClicked = false;
+        setLblColor(lbl_RunTest);
+        resetLblColor(lbl_ConfigureTest);
+        resetLblColor(lbl_UploadScore); 
+        resetLblColor(lbl_Help);
+        
+        // Switch between JPanels
+        ConfigureTest.setVisible(false);
+        RunConfiguration.setVisible(true);
+        UploadScore.setVisible(false);
+        Help.setVisible(false);
+        
+        // Run Test Configuration with our Configuration (or default)
+        if(rb_RandomAccess.isEnabled())
+             jt_random.setText("Random");
+        jt_nr.setText((String) cb_NumberOfTests.getSelectedItem());
+        return 1;
+    }                                        
+    
+    public int getReadWriteMethod(){
+        if(rb_RandomAccess.isEnabled()){
+            return 0;
+        }
+        //if(rb_Sequential.isEnabled())
+    return 1;
+}
+
+    public String getNumberOfTests(){
+      return (String) cb_NumberOfTests.getSelectedItem();
+    }
+
+    public String getFileSize(){
+      return (String) cb_FileSize.getSelectedItem();
+    }
+
+    public String getBlockSize(){
+      return (String) cb_BlockSize.getSelectedItem();
     }
     
       /**
@@ -1045,7 +1311,7 @@ public class Home extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1065,12 +1331,19 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_BlockSize;
     private javax.swing.JComboBox<String> cb_FileSize;
     private javax.swing.JComboBox<String> cb_NumberOfTests;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jt_nr;

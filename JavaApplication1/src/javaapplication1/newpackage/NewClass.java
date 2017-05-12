@@ -14,10 +14,10 @@ public class NewClass {
                 String b, c, d;
                 Home h = new Home();
                 int a;
-                a = h.getReadWriteMethod();
+                //a = h.getReadWriteMethod();
                 b = h.getNumberOfTests();
                 c = h.getFileSize();
                 d = h.getBlockSize();
-                System.out.println(a + "\n" + b + "\n" + c + "\n" + d);
+                System.out.println("\n" + b + "\n" + c + "\n" + d);
     }
 }

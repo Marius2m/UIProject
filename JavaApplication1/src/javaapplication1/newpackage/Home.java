@@ -6,6 +6,7 @@
 package javaapplication1.newpackage;
 
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,11 +18,14 @@ import javax.swing.JOptionPane;
  */
 public class Home extends javax.swing.JFrame {
     
-    private boolean isRunTestClicked       = false;
-    private boolean isConfigureTestClicked = false;
-    private boolean isUploadScoreClicked   = false;
-    private boolean isHelpClicked          = false;
-    public  boolean results                = false;
+    private boolean isRunTestClicked         = false;
+    private boolean isConfigureTestClicked   = false;
+    private boolean isUploadScoreClicked     = false;
+    private boolean isHelpClicked            = false;
+    public  boolean results                  = false;
+    public  String  ReadWriteString          = "1";
+    private boolean isDefaultTextName        = true;
+    private boolean isDefaultTextLaptopModel = true;
     
     int xx;
     int xy;
@@ -502,6 +506,12 @@ public class Home extends javax.swing.JFrame {
 
         jPanel2.add(RunConfiguration, "card2");
 
+        UploadScore.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UploadScoreMouseClicked(evt);
+            }
+        });
+
         lbl_information.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbl_information.setText("Information");
 
@@ -520,9 +530,19 @@ public class Home extends javax.swing.JFrame {
                 tf_nameFocusLost(evt);
             }
         });
+        tf_name.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_nameMouseClicked(evt);
+            }
+        });
         tf_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tf_nameActionPerformed(evt);
+            }
+        });
+        tf_name.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tf_nameKeyPressed(evt);
             }
         });
 
@@ -539,6 +559,11 @@ public class Home extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tf_laptopmodelFocusLost(evt);
+            }
+        });
+        tf_laptopmodel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tf_laptopmodelMouseClicked(evt);
             }
         });
         tf_laptopmodel.addActionListener(new java.awt.event.ActionListener() {
@@ -964,6 +989,7 @@ public class Home extends javax.swing.JFrame {
             resetLblColor(lbl_ConfigureTest);
             resetLblColor(lbl_UploadScore);
             resetLblColor(lbl_Help);
+            setLblColor(lbl_RunTest);
         }
         if(isConfigureTestClicked == true){
             resetLblColor(lbl_RunTest);
@@ -1022,22 +1048,26 @@ public class Home extends javax.swing.JFrame {
     private void rb_RandomAccessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rb_RandomAccessMouseClicked
         if(rb_RandomAccess.isSelected()){
            rb_Sequential.setSelected(false);
-           
+           ReadWriteString = "0";
         }
         else{//switch to Sequential
             rb_Sequential.setSelected(true);
             rb_RandomAccess.setSelected(false);
+            ReadWriteString = "1";
         }
             //rb_RandomAccess.setSelected(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_rb_RandomAccessMouseClicked
 
     private void rb_SequentialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rb_SequentialMouseClicked
-        if(rb_Sequential.isSelected())
+        if(rb_Sequential.isSelected()){
             rb_RandomAccess.setSelected(false);
+            ReadWriteString = "1";
+        }
         else{//switch to RandomAccess 
             rb_RandomAccess.setSelected(true);
             rb_Sequential.setSelected(false);
+            ReadWriteString = "0";
         }
             //rb_Sequential.setSelected(true);
         // TODO add your handling code here:
@@ -1064,24 +1094,16 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void tf_laptopmodelFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_laptopmodelFocusGained
-        lbl_laptopmodel.setForeground(new Color(24, 186, 129)); //focused -> green
+        lbl_laptopmodel.setForeground(new Color(9, 65, 109)); //focused -> blue
+        lbl_information.setForeground(new Color(24, 186, 129)); //focused -> green
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_laptopmodelFocusGained
 
     private void tf_laptopmodelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_laptopmodelFocusLost
-        lbl_laptopmodel.setForeground(new Color(0, 0, 0)); //unfocused -> blue
+        lbl_laptopmodel.setForeground(new Color(0, 0, 0)); //unfocused -> black
+        lbl_information.setForeground(new Color(0, 0, 0)); //unfocused -> black
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_laptopmodelFocusLost
-
-    private void tf_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_nameFocusGained
-        lbl_name.setForeground(new Color(24, 186, 129)); //focused -> green        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_nameFocusGained
-
-    private void tf_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_nameFocusLost
-        lbl_name.setForeground(new Color(0, 0, 0));  //unfocused -> blue
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_nameFocusLost
 
     private void lbl_BUploadMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_BUploadMouseEntered
         ImageIcon IB;
@@ -1247,18 +1269,62 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_testtextActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-    int a; String b, c, d;
+    String a, b, c, d;
                 a = getReadWriteMethod();
                 b = getNumberOfTests();
                 c = getFileSize();
                 d = getBlockSize();// TODO add your handling code here:
-                String res = "ReadWriteMethod " + Integer.toString(a) + "--NrTests " + b + "--File Size " + c + "--Block Size "+ d;
+                String res = "ReadWriteMethod " + a + "--NrTests " + b + "--File Size " + c + "--Block Size "+ d;
                 testtext.setText(res);
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
 
-    
+    private void tf_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_nameMouseClicked
+        if(isDefaultTextName == true){
+            tf_name.setText("");
+            Font font1 = new Font("Tahoma", Font.PLAIN, 11);
+            tf_name.setFont(font1);
+            tf_name.setForeground(Color.BLACK);
+            isDefaultTextName = false;
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_nameMouseClicked
+
+    private void tf_laptopmodelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tf_laptopmodelMouseClicked
+        if(isDefaultTextLaptopModel == true){
+            tf_laptopmodel.setText("");
+            Font font1 = new Font("Tahoma", Font.PLAIN, 11);
+            tf_laptopmodel.setFont(font1);
+            tf_laptopmodel.setForeground(Color.BLACK);
+            isDefaultTextLaptopModel = false;
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_laptopmodelMouseClicked
+
+    private void tf_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_nameFocusGained
+        lbl_name.setForeground(new Color(9, 65, 109)); //focused -> blue
+        lbl_information.setForeground(new Color(24, 186, 129)); //focused -> green
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_nameFocusGained
+
+    private void tf_nameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_nameFocusLost
+        lbl_name.setForeground(new Color(0, 0, 0)); //unfocused -> black
+        lbl_information.setForeground(new Color(0, 0, 0)); //unfocused -> black
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_nameFocusLost
+
+    private void UploadScoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UploadScoreMouseClicked
+        lbl_name.setForeground(new Color(0, 0, 0)); //unfocused -> black
+        lbl_laptopmodel.setForeground(new Color(0, 0, 0));
+        lbl_information.setForeground(new Color(0, 0, 0)); //unfocused -> black
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UploadScoreMouseClicked
+
+    private void tf_nameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_nameKeyPressed
         
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_nameKeyPressed
+ 
     public void setLblColor(JLabel lbl){
         lbl.setBackground(new Color(24, 186, 129));
         
@@ -1270,43 +1336,13 @@ public class Home extends javax.swing.JFrame {
     
     private void setLblHoverColor(JLabel lbl) {
         lbl.setBackground(new Color(6,56,94));
+    }                                   
+    
+    public String getReadWriteMethod(){
+        if(ReadWriteString.equals("1"))
+            return "1";
+        return "0";
     }
-    
-    /**
-     *
-     * @param evt
-     */
-    public int testMethod(java.awt.event.MouseEvent evt) {
-        isRunTestClicked = true;
-        isConfigureTestClicked = false;
-        isUploadScoreClicked = false;
-        isHelpClicked = false;
-        setLblColor(lbl_RunTest);
-        resetLblColor(lbl_ConfigureTest);
-        resetLblColor(lbl_UploadScore); 
-        resetLblColor(lbl_Help);
-        
-        // Switch between JPanels
-        ConfigureTest.setVisible(false);
-        RunConfiguration.setVisible(true);
-        UploadScore.setVisible(false);
-        Help.setVisible(false);
-        
-        // Run Test Configuration with our Configuration (or default)
-        if(rb_RandomAccess.isEnabled())
-             jt_random.setText("Random");
-        jt_nr.setText((String) cb_NumberOfTests.getSelectedItem());
-        return 1;
-    }                                        
-    
-    public int getReadWriteMethod(){
-        if("disable".equals(rb_Sequential.getActionCommand())){
-        //if(rb_RandomAccess.isEnabled() == true){
-            return 1;
-        }
-        //if(rb_Sequential.isEnabled())
-    return 0;
-}
 
     public String getNumberOfTests(){
       return (String) cb_NumberOfTests.getSelectedItem();

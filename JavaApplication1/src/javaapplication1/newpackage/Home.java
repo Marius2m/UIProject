@@ -75,6 +75,7 @@ public class Home extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        testtext = new javax.swing.JTextField();
         UploadScore = new javax.swing.JPanel();
         lbl_information = new javax.swing.JLabel();
         lbl_name = new javax.swing.JLabel();
@@ -432,7 +433,7 @@ public class Home extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(602, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -444,31 +445,47 @@ public class Home extends javax.swing.JFrame {
         );
 
         jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        testtext.setText("jTextField2");
+        testtext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testtextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout RunConfigurationLayout = new javax.swing.GroupLayout(RunConfiguration);
         RunConfiguration.setLayout(RunConfigurationLayout);
         RunConfigurationLayout.setHorizontalGroup(
             RunConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RunConfigurationLayout.createSequentialGroup()
-                .addContainerGap(397, Short.MAX_VALUE)
-                .addGroup(RunConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jt_nr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(RunConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jt_random, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(146, 146, 146))
             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(RunConfigurationLayout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RunConfigurationLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(RunConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RunConfigurationLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(RunConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jt_nr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(RunConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jt_random, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField3)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(118, 118, 118))
+                    .addGroup(RunConfigurationLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(29, 29, 29)
+                        .addComponent(testtext, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29))
         );
         RunConfigurationLayout.setVerticalGroup(
             RunConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RunConfigurationLayout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jt_random, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -477,8 +494,10 @@ public class Home extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jt_nr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(43, 43, 43))
+                .addGroup(RunConfigurationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(testtext, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         jPanel2.add(RunConfiguration, "card2");
@@ -1223,6 +1242,21 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel7MouseReleased
 
+    private void testtextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testtextActionPerformed
+      
+    }//GEN-LAST:event_testtextActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    int a; String b, c, d;
+                a = getReadWriteMethod();
+                b = getNumberOfTests();
+                c = getFileSize();
+                d = getBlockSize();// TODO add your handling code here:
+                String res = "ReadWriteMethod " + Integer.toString(a) + "--NrTests " + b + "--File Size " + c + "--Block Size "+ d;
+                testtext.setText(res);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
     
         
     public void setLblColor(JLabel lbl){
@@ -1266,11 +1300,12 @@ public class Home extends javax.swing.JFrame {
     }                                        
     
     public int getReadWriteMethod(){
-        if(rb_RandomAccess.isEnabled()){
-            return 0;
+        if("disable".equals(rb_Sequential.getActionCommand())){
+        //if(rb_RandomAccess.isEnabled() == true){
+            return 1;
         }
         //if(rb_Sequential.isEnabled())
-    return 1;
+    return 0;
 }
 
     public String getNumberOfTests(){
@@ -1371,6 +1406,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JRadioButton rd_hdd;
     private javax.swing.JSeparator s_laptopmodel;
     private javax.swing.JSeparator s_name;
+    private javax.swing.JTextField testtext;
     private javax.swing.JTextField tf_laptopmodel;
     private javax.swing.JTextField tf_name;
     // End of variables declaration//GEN-END:variables
